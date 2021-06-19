@@ -1,1 +1,9 @@
 apply plugin: 'java'
+
+task run_postgresql {
+    group 'Development'
+    description 'Task will execcute postgresql in docker'
+    exec {
+        commandLine 'sh', '-c', "docker run --name ui-postgres -e POSTGRES_PASSWORD=ui_test -e POSTGRES_USER=ui_test -e POSTGRES_DB=ui_assignment -p 5432:5432 -d postgres"
+    }
+}
